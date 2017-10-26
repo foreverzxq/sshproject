@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDao" class="com.module.dao.daoimpl.UserDAOImpl" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    <bean id="baseHibernateDAO" class="com.module.dao.hibernate.BaseHibernateDAOImpl" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="userService" class="com.module.serviceimpl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+        <property name="baseHibernateDAO" ref="baseHibernateDAO"></property>
+    </bean>
+
+    <bean id="userAction" class="com.module.action.UserAction">
+        <property name="userService" ref="userService"></property>
+    </bean>
+
+    <bean id="loginAction" class="com.module.action.LoginAction">
+        <property name="userService" ref="userService"></property>
+    </bean>
+</beans>

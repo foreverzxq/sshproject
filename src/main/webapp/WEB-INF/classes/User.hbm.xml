@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <!--<class name="com.module.bean.User" table="user"  catalog="test">-->
+    <class name="com.module.bean.User" table="T_USER" >
+
+        <id name="userid" type="java.lang.String">
+            <column name="userid" length="32" />
+            <generator class="assigned"/>
+        </id>
+        <!--<id name="id" column="id" type="int">-->
+            <!--<generator class="sequence"></generator>-->
+        <!--</id>-->
+
+        <property name="username" column="username" type="java.lang.String"></property>
+        <property name="password" column="password" type="java.lang.String"></property>
+        <property name="sex" column="sex" type="java.lang.String"></property>
+        <property name="age" column="age" type="java.lang.Integer"></property>
+        <property name="brithdate" column="brithdate" type="java.util.Date"></property>
+        <property name="update_time" column="update_time" type="java.lang.String"></property>
+        <property name="adress" column="adress" type="java.lang.String"></property>
+
+    </class>
+
+</hibernate-mapping>

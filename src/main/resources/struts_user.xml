@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="user" namespace="/user" extends="struts-default" >
+        <!--<default-action-ref name="simpleViewResultAction"/>-->
+        <action name="userlogin" class="com.module.action.LoginAction" method="userLogin">
+            <!-- 定义两个逻辑视图和物理资源之间的映射 -->
+            <result type="dispatcher"  name="input">/index.jsp</result>
+            <result type="dispatcher" name="success">/login_in.jsp</result>
+            <result type="dispatcher"  name="error">/index.jsp</result>
+        </action>
+
+        <action name="findAllUser" class="com.module.action.UserAction" method="findAllUser">
+            <!-- 定义两个逻辑视图和物理资源之间的映射 -->
+            <result type="dispatcher"  name="input">/index.jsp</result>
+            <result type="dispatcher" name="success">/UserList.jsp</result>
+        </action>
+
+        <action name="findUserById" class="com.module.action.UserAction" method="findUserById">
+            <!-- 定义两个逻辑视图和物理资源之间的映射 -->
+            <result type="dispatcher"  name="input">/index.jsp</result>
+            <result type="dispatcher" name="success">/page/user/userInfo.jsp</result>
+        </action>
+
+
+    </package>
+</struts>
